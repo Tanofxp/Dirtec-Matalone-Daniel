@@ -1,11 +1,11 @@
 
 import './App.css';
-import Menu from "./components/menu";
+import NavBar from "./components/NavBar";
 
 const App = () => {
   return (
   <div class="text-center menu">
-    <div> <Menu /></div> 
+    <div> <NavBar /></div> 
   </div>
   );
 }
