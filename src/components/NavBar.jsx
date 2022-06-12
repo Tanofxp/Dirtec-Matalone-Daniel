@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "../logo.png";
+import CartWidget from "./CartWidget";
 
-const NavBar = () => {
+export default function NavBar() {
   return (
     <div class="bg-dark">
       <header class="text-start">
@@ -76,12 +77,12 @@ const NavBar = () => {
                   </li>
                 </ul>
               </div>
+              <div><CartWidget /></div>
             </div>
           </nav>
         </div>
       </header>
     </div>
-  );
-};
+  )
+}
 
-export default NavBar;
