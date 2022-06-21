@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../logo.png";
-import CartWidget from "./CartWidget";
+import logo from "../../logo.png";
+import CartWidget from "../CarWidget/CartWidget";
 
 export default function NavBar() {
   return (
