@@ -1,39 +1,57 @@
+import React, {useState, useEffect} from 'react'
+import { Box, Button, ButtonGroup, IconButton, Text, useColorModeValue} from '@chakra-ui/react'
+import { AddIcon, MinusIcon } from '@chakra-ui/icons';
 
-import React, { useState } from 'react'
+const ItemCount = ({Stock, initial, onAdd}) => {
+
+    let [auxStock, setauxStock] = useState(initial);
 
 
-export default function ItemCount({Stock, initial, onAdd}) {
+    function moreItems(){
+        setauxStock( auxStock < Stock ? auxStock+1 : auxStock=Stock )
+    }
 
-  let [auxStock, setAuxStock] = useState(initial);
+    function lessItems(){
+        setauxStock( auxStock > 1 ? auxStock-1 : auxStock=1 )
+    }
 
-
-  function aumentarStock(){
-
-    setAuxStock( auxStock<Stock?auxStock+1:auxStock=Stock )
-
-  }
-  function restarStock(){
-
-    setAuxStock( auxStock > 1 ? auxStock-1 : auxStock=1 )
-  }
-
-  return (
+    useEffect(() => {
+        if(auxStock===Stock){
+            alert("El Stock máximo es: " + Stock)
+        }
+        // eslint-disable-next-line
+    }, [auxStock])
     
-    <div className='text-white h1 text-capitalize mt-5 '>
-    <div className='container-fluid '>
-        <div className='row'>
-        <div className='col'>
-        <button className='btn btn-danger mb-2' onClick={()=>{restarStock()}}>-</button>
-        <input className='col-3 m-3 text-center' value={auxStock} disabled></input>
-        <button className='btn btn-success mb-2' onClick={()=>{aumentarStock()}}>+</button>
-        </div>
-        </div>
 
-    </div>
-    <div>
-      <button className='btn btn-info' onClick={onAdd}>Agregar al Carrito</button>
-    </div>
-    </div>
-  )
+    return (
+        <>
+        <Box borderWidth='1px' 
+        overflow='hidden' 
+        width='165px' 
+        align='center' 
+        margin='auto' 
+        borderRadius='lg'
+        bg={useColorModeValue('yellow.50', 'gray.800')}
+        >
+        <ButtonGroup margin='auto' size='sm' isAttached variant='outline'>
+            <IconButton onClick={()=>{lessItems()}} icon={<MinusIcon />} />
+
+            <Text width="100px"
+            py={1} 
+            color={useColorModeValue('gray.600', 'white')}>
+                {auxStock}
+            </Text>
+            <IconButton onClick={()=>{moreItems()}} icon={<AddIcon />} />
+        </ButtonGroup>
+        </Box>
+        <Box align='center'>
+        <Text size='sm' mt={2}>Stock: {Stock} </Text>
+        
+        <Button mt={3} mb={2} width='160px' onClick={onAdd} colorScheme='blue'>Agregar al Carrito</Button>
+        </Box>
+        </>
+    )
 }
+
+export default ItemCount
     

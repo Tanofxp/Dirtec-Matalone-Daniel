@@ -1,12 +1,11 @@
 import React from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
-
+import { Box } from '@chakra-ui/react'
 
 export default function ItemDetailContainer() {
   return (
-    <div>
-        <h1 className='text-white'>ItemDetailContainer</h1>
+    <Box>
         <ItemDetail />
-    </div>
+    </Box>
   )
 }

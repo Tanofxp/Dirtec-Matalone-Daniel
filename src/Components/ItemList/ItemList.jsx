@@ -1,15 +1,15 @@
 import React from 'react';
 import Item from '../Item/Item';
 
-export default function ItemList({productList}) {
+export default function ItemList({productList, onAdd}) {
     
   return (
-    <div className='row'>
+    <>
       {
           productList.map((item) =>(
-              <Item key={item.id} id={item.id} Modelo={item.Modelo} Marca={item.Marca} precio={item.precio} imgURL={item.imgURL} />
+              <Item key={item.id} id={item.id} Modelo={item.Modelo} Marca={item.Marca} precio={item.precio} imgURL={item.imgURL} onAdd={onAdd}/>
             ))
       }
-    </div>
+    </>
   )
 }

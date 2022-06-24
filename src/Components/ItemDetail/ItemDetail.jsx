@@ -1,5 +1,6 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
+import { Box } from '@chakra-ui/react'
 
 export default function ItemDetail() {
 
@@ -9,9 +10,12 @@ export default function ItemDetail() {
 
 
     return (
-        <div>
-        <h1 className='text-white'>ItemDetail</h1>
+        <>
+        <br/>
+        <Box borderWidth='2px' borderRadius='lg' width='200px' p={5} m='auto' borderColor='gray.500'>
             <ItemCount Stock={20} initial={1} onAdd={onAdd}/>
-        </div>
+        </Box>
+
+        </>
         )
 }

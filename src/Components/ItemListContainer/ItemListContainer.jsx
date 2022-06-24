@@ -1,12 +1,14 @@
-import './ItemListContainer.css';
 import React, { useEffect,useState } from 'react'
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import {Box, Text, Spinner, SimpleGrid, useColorModeValue} from '@chakra-ui/react';
 
 
 export default function ItemListContainer() {
   const [productoList, setProductoList] = useState([])
   const [loading, setLoading] = useState(true)
+  const spinnerColor = useColorModeValue('yellow.400', 'blue.500');
+  const spinnerEmptyColor = useColorModeValue('gray.400', 'gray.200');
   let { idProducto } = useParams();
   console.log(idProducto)
   useEffect(() => {
@@ -39,12 +41,23 @@ export default function ItemListContainer() {
     
 
   }, [idProducto])
+
+  function onAdd(){
+    alert("Agregaste los Items al carrito")
+  }
   
 
   return (
     
       <>
-      { loading ? <div className="spinner-border text-warning mt-5" role="status"> <span className="visually-hidden">Loading...</span></div> : <ItemList  productList={productoList}/> }
+      { loading ? 
+        <Box align='center' mt={250}>
+          <Spinner thickness='4px' speed='0.65s' emptyColor={spinnerEmptyColor} color={spinnerColor} size='xl' /> 
+          <Text>Cargando...</Text>
+        </Box> 
+        : <SimpleGrid minChildWidth='400px' spacing='10px'>
+            <ItemList  productList={productoList} onAdd={onAdd}/>
+          </SimpleGrid> }
     </> 
   )
 }
