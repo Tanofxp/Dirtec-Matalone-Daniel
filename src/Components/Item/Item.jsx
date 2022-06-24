@@ -1,4 +1,5 @@
 import React from 'react'
+
 import './Item.css';
 
 export default function Item({id, Modelo, Marca, precio, imgURL}) {
@@ -11,6 +12,7 @@ export default function Item({id, Modelo, Marca, precio, imgURL}) {
           <h5>Modelo: {Modelo}</h5>
           <h6 >ID: {id}</h6>
           <p className="card-text">Precio: {precio}</p>
+          
         </div>
       </div>
     </div>

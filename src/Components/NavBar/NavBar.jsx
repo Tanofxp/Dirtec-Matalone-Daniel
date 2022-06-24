@@ -12,9 +12,9 @@ export default function NavBar() {
           </div>
           <nav className="navbar navbar-expand-lg bg-info">
             <div className="container-fluid">
-              <a className="navbar-brand" >
+              <spam className="navbar-brand" >
                 Menu
-              </a>
+              </spam>
               <button
                 className="navbar-toggler"
                 type="button"
@@ -29,22 +29,22 @@ export default function NavBar() {
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" >
+                    <spam className="nav-link active" aria-current="page" >
                       Login
-                    </a>
+                    </spam>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" >
+                    <spam className="nav-link" >
                       Contactos
-                    </a>
+                    </spam>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" >
+                    <spam className="nav-link" >
                       Productos
-                    </a>
+                    </spam>
                   </li>
                   <li className="nav-item dropdown">
-                    <a
+                    <spam
                       className="nav-link dropdown-toggle"
                       
                       id="navbarDropdownMenuLink"
@@ -53,25 +53,25 @@ export default function NavBar() {
                       aria-expanded="false"
                     >
                       Redes Sociales
-                    </a>
+                    </spam>
                     <ul
                       className="dropdown-menu"
                       aria-labelledby="navbarDropdownMenuLink"
                     >
                       <li>
-                        <a className="dropdown-item" >
+                        <spam className="dropdown-item" >
                           Twiter
-                        </a>
+                        </spam>
                       </li>
                       <li>
-                        <a className="dropdown-item" >
+                        <spam className="dropdown-item" >
                           Instagram
-                        </a>
+                        </spam>
                       </li>
                       <li>
-                        <a className="dropdown-item" >
+                        <spam className="dropdown-item" >
                           Facebook
-                        </a>
+                        </spam>
                       </li>
                     </ul>
                   </li>
