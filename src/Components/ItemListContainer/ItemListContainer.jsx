@@ -9,8 +9,8 @@ export default function ItemListContainer() {
   const [loading, setLoading] = useState(true)
   const spinnerColor = useColorModeValue('yellow.400', 'blue.500');
   const spinnerEmptyColor = useColorModeValue('gray.400', 'gray.200');
-  let { idProducto } = useParams();
-  console.log(idProducto)
+  let { id } = useParams();
+  console.log(id)
   useEffect(() => {
     const producto = [
       { id: 1, Modelo: 'Thinkpad X1' ,           Marca: 'Lenovo ', precio: 230000, imgURL: "https://www.lenovo.com/medias/lenovo-laptop-thinkpad-x1-carbon-gen-9-14-series-thumbnail.png?context=bWFzdGVyfHJvb3R8ODExMzV8aW1hZ2UvcG5nfGhjZC9oMGYvMTQwNzA2NzQ1ODc2NzgucG5nfDg2NTMzNzNlMThiMDI3ZGU0NzY1YmViNmQ4YmU2YjJjNjE3MmU2NDRmNWZlMTczMmY4Mzk5NTUwMGM1NzdjNDM" },
@@ -21,26 +21,27 @@ export default function ItemListContainer() {
       { id: 6, Modelo: 'Thinkpad IdeaPad 5i' ,   Marca: 'Lenovo ', precio: 90000,  imgURL: "https://www.lenovo.com/medias/lenovo-laptops-ideapad-5i-14-series.png?context=bWFzdGVyfHJvb3R8MTAwMTg5fGltYWdlL3BuZ3xoMGUvaDUwLzE0Mjc4MDA5NjE4NDYyLnBuZ3wyN2VhY2JjYTAxZjdmMmQ4NDI4OTMxN2VlMzhkODhjNWFmZmRmZTNiZWVmMGY2MTE4MDAyMGZjMTIwZjZkZGJl" }
     ];
     
-    
+    let arrayFiltrado = producto.filter((item) => item.id === id);
+    console.log(producto.id, "producto id")
     new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (idProducto !== ""){
-              resolve(producto)
-            }else{
-              let arrayFiltrado = producto.filter((item) => item.id === idProducto);
-              resolve(arrayFiltrado)
-            }
-          
+          if(id === undefined){
+            resolve(producto)
+          } else{
+            
+            
+            resolve(arrayFiltrado)
+            console.log(arrayFiltrado, "array filtrado")
+          }
 
       }, 2000);
     }).then((res)=>{
-      
         setProductoList(res)
         setLoading(false)
     })
     
 
-  }, [idProducto])
+  }, [id])
 
   function onAdd(){
     alert("Agregaste los Items al carrito")
